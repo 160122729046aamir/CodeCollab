@@ -1,5 +1,5 @@
 services:
-  - name: codecollab-backend
+  - name: codecollab
     type: web
     runtime: node
     envVars:
@@ -8,15 +8,7 @@ services:
       - key: PORT
         value: 5000
       - key: VITE_BACKEND_URL
-        value: https://codecollab.onrender.com  # Replace with actual Render URL after deployment
+        value: https://codecollab.onrender.com  # Replace with actual URL after deployment
     buildCommand: npm install && npm run build
     startCommand: node index.js
-    autoDeploy: true  # Automatically deploy when new commits are pushed
-
-  - name: codecollab-frontend
-    type: static
-    buildCommand: npm install && npm run build
-    staticPublishPath: dist
-    envVars:
-      - key: VITE_BACKEND_URL
-        value: https://codecollab.onrender.com  # Use backend URL after deployment
+    autoDeploy: true
